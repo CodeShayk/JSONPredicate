@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONPredicate", "src\JSONPredicate\JSONPredicate.csproj", "{20B76ADC-F6BF-44A5-A964-41A640CD1EDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{20724D3F-39FE-4F09-A46C-8784AC256D2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JSONPredicate.Tests", "tests\JSONPredicate.Tests\JSONPredicate.Tests.csproj", "{1AB8813D-C89E-4136-83B8-456137F55A9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{F3C47063-E827-49E1-8FC6-94479958BA89}"
+	ProjectSection(SolutionItems) = preProject
+		GitVersion.yml = GitVersion.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{7D9DF01C-89EB-4A77-BB18-5AE2FE3BC117}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\Master-Build.yml = .github\workflows\Master-Build.yml
+		.github\workflows\Master-CodeQL.yml = .github\workflows\Master-CodeQL.yml
+		.github\workflows\PR-CI.yml = .github\workflows\PR-CI.yml
+		.github\workflows\PR-CodeQL.yml = .github\workflows\PR-CodeQL.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20B76ADC-F6BF-44A5-A964-41A640CD1EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20B76ADC-F6BF-44A5-A964-41A640CD1EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20B76ADC-F6BF-44A5-A964-41A640CD1EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20B76ADC-F6BF-44A5-A964-41A640CD1EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB8813D-C89E-4136-83B8-456137F55A9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB8813D-C89E-4136-83B8-456137F55A9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB8813D-C89E-4136-83B8-456137F55A9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB8813D-C89E-4136-83B8-456137F55A9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20B76ADC-F6BF-44A5-A964-41A640CD1EDB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1AB8813D-C89E-4136-83B8-456137F55A9A} = {20724D3F-39FE-4F09-A46C-8784AC256D2A}
+		{7D9DF01C-89EB-4A77-BB18-5AE2FE3BC117} = {F3C47063-E827-49E1-8FC6-94479958BA89}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E6694E19-183E-4A7F-A905-BF737F191C67}
+	EndGlobalSection
+EndGlobal

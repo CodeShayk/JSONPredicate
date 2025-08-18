@@ -1,0 +1,83 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net462;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Title>JSONPredicate</Title>
+    <Authors>CodeShayk</Authors>
+    <Company>CodeShayk</Company>
+    <Description>A powerful .NET library for evaluating intuitive string-based predicate expressions against JSON objects using JSONPath syntax.</Description>
+    <PackageIcon>ninja-icon-16.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Copyright>Copyright (c) 2025 Code Shayk</Copyright>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>JSON, JSONPath, Predicate, JSON-Query, JSONPath-Query, JSON-Predicate, JSONPath-Predicate, Object-Path, Object-String-Predicate, Object-JSON-Predicate, Object-JSONPath-Predicate, Object-JSON-Predicate, Object-JSONPath-Query, PredicateBuilder, Object-Query-Predicate, Object-Path-Query, Query-Predicate, Object-Query</PackageTags>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <PackageProjectUrl>https://github.com/CodeShayk/JSONPredicate/wiki</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/CodeShayk/JSONPredicate</RepositoryUrl>
+    <PackageReleaseNotes>
+      v1.0.0 - Release of JSONPredicate library.
+      This library provides a powerful and intuitive way to evaluate string-based predicate expressions against JSON objects using JSONPath syntax in .NET applications.
+    </PackageReleaseNotes>
+    <Version>1.0.0</Version>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <AssemblyName>JSONPredicate</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net462|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net9.0|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net462|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.0|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard2.1|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net9.0|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\Images\ninja-icon-16.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="9.0.8" />
+  </ItemGroup>
+
+</Project>
