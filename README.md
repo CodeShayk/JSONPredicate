@@ -7,8 +7,9 @@
 [![.Net Framework 4.6.4](https://img.shields.io/badge/.Net-4.6.2-blue)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net46)
 [![.Net Standard 2.0](https://img.shields.io/badge/.NetStandard-2.0-blue)](https://github.com/dotnet/standard/blob/v2.0.0/docs/versions/netstandard2.0.md)
 
+## What is JSONPredicate?
 
-A powerful .NET library for evaluating string-based predicate expressions against JSON objects using JSONPath syntax.
+.Net library to provide a powerful and intuitive way to evaluate string-based predicate expressions against JSON objects using JSONPath syntax.
 
 ## Features
 
