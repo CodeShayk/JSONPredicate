@@ -77,4 +77,4 @@ This project is licensed under the `MIT License` - see the [license](LICENSE) fi
 ## Support
 - 📖 Read the [Documentation](https://github.com/CodeShayk/JSONPredicate/wiki)
 - 🐛 If you are having problems, please let us know by raising a new issue [here](https://github.com/CodeShayk/JSONPredicate/issues/new/choose).
-- 💬 Ask questions on Discussions
+- 💬 Ask questions on [Discussions](https://github.com/CodeShayk/JSONPredicate/discussions)
