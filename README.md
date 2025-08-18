@@ -27,15 +27,11 @@ Install-Package JsonPathPredicate
 ```
 ## Getting Started
 The library provides a powerful, flexible way to evaluate complex conditional logic against JSON objects, making it ideal for business rules, filtering, validation, and many other use cases in .NET applications.
-> Please see [wiki](https://github.com/CodeShayk/JSONPredicate/wiki) for comprehensive documentation to integrate JSONPredicate in your project.
-
 #### i. Expression Syntax
 The expression syntax is ([JSONPath] [Comparison Operator] [Value]) [Logical Operator] ([JSONPath] [Comparison Operator] [Value])
-
 #### ii. Supported Operators
 - Comparison Operators - `eq`, `in`, `gt`, `gte`, `lt`, `lte` & `Not`
 - Logical Operators - `and` & `or`
-
 ### Example
 ```
 var customer = new {
@@ -58,11 +54,12 @@ bool result1 = JSONPredicate.Evaluate("client.address.postcode eq `e113et`", cus
 ```
 bool result2 = JSONPredicate.Evaluate("client.address.postcode eq `e113et` and client.address.number eq 123", customer);
 ```
-
 #### iii. Array operations
 ```
 bool result3 = JSONPredicate.Evaluate("client.tags in [`vip`, `standard`]", customer);
 ```
+## Developer Guide
+Please see [Developer Guide](https://github.com/CodeShayk/JSONPredicate/wiki) for comprehensive documentation to integrate JSONPredicate in your project.
 
 ## Contributing
 - Fork the repository
