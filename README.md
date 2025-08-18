@@ -1,4 +1,4 @@
-# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.1.0
+# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.0.0
 [![NuGet version](https://badge.fury.io/nu/JSONPredicate.svg)](https://badge.fury.io/nu/JSONPredicate) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CodeShayk/JSONPredicate/blob/master/LICENSE.md) 
 [![GitHub Release](https://img.shields.io/github/v/release/CodeShayk/JSONPredicate?logo=github&sort=semver)](https://github.com/CodeShayk/JSONPredicate/releases/latest)
 [![master-build](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml/badge.svg)](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml)
