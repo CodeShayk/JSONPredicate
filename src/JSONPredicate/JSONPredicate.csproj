@@ -7,7 +7,7 @@
     <Title>JSONPredicate</Title>
     <Authors>CodeShayk</Authors>
     <Company>CodeShayk</Company>
-    <Description>A powerful .NET library for evaluating intuitive string-based predicate expressions against JSON objects using JSONPath syntax.</Description>
+    <Description>A powerful .NET library for evaluating string-based predicate expressions against JSON objects using JSONPath syntax.</Description>
     <PackageIcon>ninja-icon-16.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
