@@ -62,17 +62,15 @@ bool result3 = JSONPredicate.Evaluate("client.tags in [`vip`, `standard`]", cust
 ## Developer Guide
 Please see [Developer Guide](https://github.com/CodeShayk/JSONPredicate/wiki) for comprehensive documentation to integrate JSONPredicate in your project.
 
-## Contributing
-- Fork the repository
-- Create your feature branch (git checkout -b feature/AmazingFeature)
-- Commit your changes (git commit -m 'Add some AmazingFeature')
-- Push to the branch (git push origin feature/AmazingFeature)
-- Open a Pull Request
-
 ## License
 This project is licensed under the `MIT License` - see the [license](LICENSE) file for details.
 
-## Support
+## Contributing
+We welcome contributions! Please see our Contributing Guide for details.
 - 📖 Read the [Documentation](https://github.com/CodeShayk/JSONPredicate/wiki)
 - 🐛 If you are having problems, please let us know by raising a new issue [here](https://github.com/CodeShayk/JSONPredicate/issues/new/choose).
 - 💬 Ask questions on [Discussions](https://github.com/CodeShayk/JSONPredicate/discussions)
+- 💻 Code - Submit [pull](https://github.com/CodeShayk/JSONPredicate/pulls) requests
+
+## Credits
+Thank you for reading. Please fork, explore, contribute and report. Happy Coding !! :)
