@@ -24,7 +24,7 @@
 
 Install via NuGet Package Manager:
 ```bash
-Install-Package JsonPathPredicate
+Install-Package JsonPredicate
 ```
 ## Getting Started
 The library provides a powerful, flexible way to evaluate complex conditional logic against JSON objects, making it ideal for business rules, filtering, validation, and many other use cases in .NET applications.
