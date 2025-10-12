@@ -24,7 +24,7 @@
 
 Install via NuGet Package Manager:
 ```bash
-Install-Package JsonPredicate
+NuGet\Install-Package JsonPredicate
 ```
 ## Getting Started
 The library provides a powerful, flexible way to evaluate complex conditional logic against JSON objects, making it ideal for business rules, filtering, validation, and many other use cases in .NET applications.
@@ -61,6 +61,19 @@ bool result3 = JSONPredicate.Evaluate("client.tags in [`vip`, `standard`]", cust
 ```
 ## Developer Guide
 Please see [Developer Guide](https://github.com/CodeShayk/JSONPredicate/wiki) for comprehensive documentation to integrate JSONPredicate in your project.
+
+
+## Release Roadmap
+This section provides the summary of planned releases with key details about each release.
+| Version | Release Date | Type | Key Improvements | Backward Compatible |
+|---------|--------------|------|------------------|-------------------|
+| v1.0.0 | August 2025 | Major | Initial release with core predicate evaluation | N/A |
+| v1.1.0 | October 2025 | Minor | Namespace consistency, thread safety, 50%+ performance improvement, array indexing, new operators (`starts_with`, `ends_with`, `contains`) | Yes |
+| v2.0.0 | TBC | Major | Comprehensive validation, performance benchmarking, thread safety verification, complete documentation | Mostly* |
+
+*Note: v2.0.0 marked as "Mostly" backward compatible due to major internal changes that may affect some advanced usage patterns.
+
+Please see [Release Roadmap](https://github.com/CodeShayk/JSONPredicate/blob/master/Release_Roadmap.md) for more details.
 
 ## License
 This project is licensed under the `MIT License` - see the [license](LICENSE) file for details.
