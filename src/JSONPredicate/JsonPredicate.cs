@@ -1,23 +1,33 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using JsonPathPredicate;
-using JsonPathPredicate.Operators;
+using JSONPredicate.Operators;
 
 namespace JSONPredicate
 {
     public static class JSONPredicate
     {
-        private static readonly Dictionary<string, Func<object, object, bool>> ComparisonOperators = new Dictionary<string, Func<object, object, bool>>()
+        private static readonly ConcurrentDictionary<string, Func<object, object, bool>> ComparisonOperators;
+
+        static JSONPredicate()
         {
-            { Expression.Comparison.EqOperator, (left, right) => EqOperator.Evaluate(left, right)},
-            { Expression.Comparison.InOperator, (left, right) => InOperator.Evaluate(left, right) },
-            { Expression.Comparison.NotOperator, (left, right) => NotOperator.Evaluate(left, right) },
-            { Expression.Comparison.GtOperator, (left, right) => GtOperator.Evaluate(left, right) },
-            { Expression.Comparison.GteOperator, (left, right) => GteOperator.Evaluate(left, right) },
-            { Expression.Comparison.LtOperator, (left, right) => LtOperator.Evaluate(left, right) },
-            { Expression.Comparison.LteOperator, (left, right) => LteOperator.Evaluate(left, right)}
-        };
+            var operators = new Dictionary<string, Func<object, object, bool>>()
+            {
+                { Expression.Comparison.EqOperator, (left, right) => EqOperator.Evaluate(left, right)},
+                { Expression.Comparison.InOperator, (left, right) => InOperator.Evaluate(left, right) },
+                { Expression.Comparison.NotOperator, (left, right) => NotOperator.Evaluate(left, right) },
+                { Expression.Comparison.GtOperator, (left, right) => GtOperator.Evaluate(left, right) },
+                { Expression.Comparison.GteOperator, (left, right) => GteOperator.Evaluate(left, right) },
+                { Expression.Comparison.LtOperator, (left, right) => LtOperator.Evaluate(left, right) },
+                { Expression.Comparison.LteOperator, (left, right) => LteOperator.Evaluate(left, right)},
+                { Expression.Comparison.StartsWithOperator, (left, right) => StartsWithOperator.Evaluate(left, right)},
+                { Expression.Comparison.EndsWithOperator, (left, right) => EndsWithOperator.Evaluate(left, right)},
+                { Expression.Comparison.ContainsOperator, (left, right) => ContainsOperator.Evaluate(left, right)}
+            };
+
+            ComparisonOperators = new ConcurrentDictionary<string, Func<object, object, bool>>(operators);
+        }
 
         public static bool Evaluate(string expression, object obj)
         {

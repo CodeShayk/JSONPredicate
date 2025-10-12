@@ -1,7 +1,7 @@
 using System;
 using System.Globalization;
 
-namespace JsonPathPredicate
+namespace JSONPredicate
 {
     internal static class DataTypes
     {
