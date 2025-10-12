@@ -31,7 +31,7 @@ namespace JSONPredicate
                 throw new ArgumentException($"Invalid expression format: {expression}");
 
             // Define operators in order of length (longer first) to avoid partial matches
-            var operators = new[] { "gte", "lte", "not", "eq", "gt", "lt", "in" };
+            var operators = new[] { "gte", "lte", "not", "eq", "gt", "lt", "in", "starts_with", "ends_with", "contains" };
 
             for (int i = 0; i < expr.Length; i++)
             {

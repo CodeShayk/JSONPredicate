@@ -566,5 +566,336 @@ namespace JSONPredicate.Tests
             var result = JSONPredicate.Evaluate("(client.role in (`admin`, `manager`) or client.tags in (`vip`)) and client.address.active eq true", _testObject);
             Assert.That(result, Is.True);
         }
+
+        // === v1.1.0 NEW FEATURES TESTS ===
+
+        // Array Indexing Tests - NEW in v1.1.0
+        [Test]
+        public void Evaluate_ArrayIndexing_AccessFirstElement_ShouldReturnTrue()
+        {
+            var obj = new { items = new[] { "first", "second", "third" } };
+            var result = JSONPredicate.Evaluate("items[0] eq `first`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_AccessMiddleElement_ShouldReturnTrue()
+        {
+            var obj = new { items = new[] { "first", "second", "third" } };
+            var result = JSONPredicate.Evaluate("items[1] eq `second`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_AccessLastElement_ShouldReturnTrue()
+        {
+            var obj = new { items = new[] { "first", "second", "third" } };
+            var result = JSONPredicate.Evaluate("items[2] eq `third`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_InvalidIndex_ShouldReturnFalse()
+        {
+            var obj = new { items = new[] { "first", "second" } };
+            var result = JSONPredicate.Evaluate("items[10] eq `nonexistent`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_NegativeIndex_ShouldReturnFalse()
+        {
+            var obj = new { items = new[] { "first", "second" } };
+            var result = JSONPredicate.Evaluate("items[-1] eq `first`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_NonArrayProperty_ShouldReturnFalse()
+        {
+            var obj = new { items = "not-an-array" };
+            var result = JSONPredicate.Evaluate("items[0] eq `first`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_NestedArrayElement_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                users = new[] 
+                { 
+                    new { name = "John", role = "admin" },
+                    new { name = "Jane", role = "user" }
+                }
+            };
+            var result = JSONPredicate.Evaluate("users[0].name eq `John`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_NestedArrayElementWithComparison_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                users = new[] 
+                { 
+                    new { name = "John", role = "admin" },
+                    new { name = "Jane", role = "user" }
+                }
+            };
+            var result = JSONPredicate.Evaluate("users[1].role eq `user`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_WithLogicalOperators_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                items = new[] { "active", "pending" },
+                status = "ok"
+            };
+            var result = JSONPredicate.Evaluate("items[0] eq `active` and status eq `ok`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ArrayIndexing_WithInOperator_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                tags = new[] { "premium", "verified" }
+            };
+            var result = JSONPredicate.Evaluate("tags[0] in (`premium`, `basic`)", obj);
+            Assert.That(result, Is.True);
+        }
+
+        // StartsWith Operator Tests - NEW in v1.1.0
+        [Test]
+        public void Evaluate_StartsWithOperator_MatchBeginning_ShouldReturnTrue()
+        {
+            var obj = new { name = "John Doe" };
+            var result = JSONPredicate.Evaluate("name starts_with `John`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_NoMatch_ShouldReturnFalse()
+        {
+            var obj = new { name = "John Doe" };
+            var result = JSONPredicate.Evaluate("name starts_with `Jane`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_CaseInsensitive_ShouldReturnTrue()
+        {
+            var obj = new { name = "John Doe" };
+            var result = JSONPredicate.Evaluate("name starts_with `john`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_EmptyString_ShouldReturnTrue()
+        {
+            var obj = new { name = "John" };
+            var result = JSONPredicate.Evaluate("name starts_with ``", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_EntireString_ShouldReturnTrue()
+        {
+            var obj = new { name = "John" };
+            var result = JSONPredicate.Evaluate("name starts_with `John`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_WithArrayElement_ShouldReturnTrue()
+        {
+            var obj = new { tags = new[] { "premium-user", "verified" } };
+            var result = JSONPredicate.Evaluate("tags[0] starts_with `premium`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_StartsWithOperator_WithLogicalOperators_ShouldReturnTrue()
+        {
+            var obj = new { name = "John", status = "active" };
+            var result = JSONPredicate.Evaluate("name starts_with `Jo` and status eq `active`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        // EndsWith Operator Tests - NEW in v1.1.0
+        [Test]
+        public void Evaluate_EndsWithOperator_MatchEnd_ShouldReturnTrue()
+        {
+            var obj = new { email = "john@example.com" };
+            var result = JSONPredicate.Evaluate("email ends_with `.com`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_NoMatch_ShouldReturnFalse()
+        {
+            var obj = new { email = "john@example.com" };
+            var result = JSONPredicate.Evaluate("email ends_with `.org`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_CaseInsensitive_ShouldReturnTrue()
+        {
+            var obj = new { email = "john@EXAMPLE.COM" };
+            var result = JSONPredicate.Evaluate("email ends_with `.com`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_EmptyString_ShouldReturnTrue()
+        {
+            var obj = new { name = "John" };
+            var result = JSONPredicate.Evaluate("name ends_with ``", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_EntireString_ShouldReturnTrue()
+        {
+            var obj = new { name = "John" };
+            var result = JSONPredicate.Evaluate("name ends_with `John`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_WithArrayElement_ShouldReturnTrue()
+        {
+            var obj = new { tags = new[] { "user-premium", "verified" } };
+            var result = JSONPredicate.Evaluate("tags[0] ends_with `premium`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_EndsWithOperator_WithLogicalOperators_ShouldReturnTrue()
+        {
+            var obj = new { name = "Johnson", status = "active" };
+            var result = JSONPredicate.Evaluate("name ends_with `son` and status eq `active`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        // Contains Operator Tests - NEW in v1.1.0
+        [Test]
+        public void Evaluate_ContainsOperator_MatchSubstring_ShouldReturnTrue()
+        {
+            var obj = new { description = "This is a sample text" };
+            var result = JSONPredicate.Evaluate("description contains `sample`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_NoMatch_ShouldReturnFalse()
+        {
+            var obj = new { description = "This is a sample text" };
+            var result = JSONPredicate.Evaluate("description contains `missing`", obj);
+            Assert.That(result, Is.False);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_CaseInsensitive_ShouldReturnTrue()
+        {
+            var obj = new { description = "This Is A Sample Text" };
+            var result = JSONPredicate.Evaluate("description contains `sample`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_MatchEntireString_ShouldReturnTrue()
+        {
+            var obj = new { text = "hello" };
+            var result = JSONPredicate.Evaluate("text contains `hello`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_EmptySubstring_ShouldReturnTrue()
+        {
+            var obj = new { text = "hello" };
+            var result = JSONPredicate.Evaluate("text contains ``", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_WithArrayElement_ShouldReturnTrue()
+        {
+            var obj = new { tags = new[] { "super-premium-package", "verified" } };
+            var result = JSONPredicate.Evaluate("tags[0] contains `premium`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_ContainsOperator_WithLogicalOperators_ShouldReturnTrue()
+        {
+            var obj = new { name = "John Smith", department = "Engineering" };
+            var result = JSONPredicate.Evaluate("name contains `Smith` and department contains `Eng`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        // Combined NEW Features Tests
+        [Test]
+        public void Evaluate_CombinedNewFeatures_ArrayIndexingWithStartsWith_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                tags = new[] { "premium-user", "basic-user", "admin" } 
+            };
+            var result = JSONPredicate.Evaluate("tags[0] starts_with `premium`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_CombinedNewFeatures_ArrayIndexingWithEndsWith_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                filenames = new[] { "document.pdf", "image.jpg", "spreadsheet.xlsx" } 
+            };
+            var result = JSONPredicate.Evaluate("filenames[1] ends_with `.jpg`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_CombinedNewFeatures_ArrayIndexingWithContains_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                descriptions = new[] { "This is a premium service", "Basic option", "Standard plan" } 
+            };
+            var result = JSONPredicate.Evaluate("descriptions[0] contains `premium`", obj);
+            Assert.That(result, Is.True);
+        }
+
+        [Test]
+        public void Evaluate_CombinedNewFeatures_ComplexExpressionWithAllNewFeatures_ShouldReturnTrue()
+        {
+            var obj = new 
+            { 
+                users = new[] 
+                { 
+                    new { name = "John Smith", email = "john.smith@example.com", roles = new[] { "user", "editor" } },
+                    new { name = "Jane Doe", email = "jane.doe@work.org", roles = new[] { "admin", "manager" } }
+                }
+            };
+            
+            // Complex expression using array indexing, and new string operators
+            var result = JSONPredicate.Evaluate(
+                "users[0].name starts_with `John` and " +
+                "users[1].email ends_with `.org` and " +
+                "users[0].email contains `smith` and " +
+                "users[1].roles[0] eq `admin`", obj);
+                
+            Assert.That(result, Is.True);
+        }
     }
 }
