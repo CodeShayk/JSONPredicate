@@ -1,4 +1,4 @@
-namespace JsonPathPredicate.Operators
+namespace JSONPredicate.Operators
 {
     internal static class LteOperator
     {

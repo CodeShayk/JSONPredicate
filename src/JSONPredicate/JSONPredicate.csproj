@@ -21,10 +21,17 @@
     <PackageProjectUrl>https://github.com/CodeShayk/JSONPredicate/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CodeShayk/JSONPredicate</RepositoryUrl>
     <PackageReleaseNotes>
-      v1.0.0 - Release of JSONPredicate library.
-      This library provides a powerful and intuitive way to evaluate string-based predicate expressions against JSON objects using JSONPath syntax in .NET applications.
+      v1.1.0 - Enhanced JSONPredicate library with significant improvements.
+      - Array indexing support in JSONPath (e.g., `array[0].property`)
+      - New comparison operators: `starts_with`, `ends_with`, and `contains`
+      - Direct object navigation with 50%+ performance improvement
+      - Thread-safe operation in multi-threaded environments
+      - Optimized expression parsing without regex dependency.
+      
+      For more details, visit the release page: 
+      https://github.com/CodeShayk/JSONPredicate/releases/tag/v1.1.0
     </PackageReleaseNotes>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AssemblyName>JSONPredicate</AssemblyName>
   </PropertyGroup>

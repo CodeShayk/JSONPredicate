@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace JsonPathPredicate.Operators
+namespace JSONPredicate.Operators
 {
     internal static class InOperator
     {

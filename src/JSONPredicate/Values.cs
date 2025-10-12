@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace JsonPathPredicate
+namespace JSONPredicate
 {
     internal static class Values
     {

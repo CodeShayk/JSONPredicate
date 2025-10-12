@@ -1,4 +1,4 @@
-# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.0.0
+# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.1.0
 [![NuGet version](https://badge.fury.io/nu/JSONPredicate.svg)](https://badge.fury.io/nu/JSONPredicate) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CodeShayk/JSONPredicate/blob/master/LICENSE.md) 
 [![GitHub Release](https://img.shields.io/github/v/release/CodeShayk/JSONPredicate?logo=github&sort=semver)](https://github.com/CodeShayk/JSONPredicate/releases/latest)
 [![master-build](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml/badge.svg)](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml)
@@ -6,6 +6,7 @@
 [![.Net 9.0](https://img.shields.io/badge/.Net-9.0-blue)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 [![.Net Framework 4.6.4](https://img.shields.io/badge/.Net-4.6.2-blue)](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net46)
 [![.Net Standard 2.0](https://img.shields.io/badge/.NetStandard-2.0-blue)](https://github.com/dotnet/standard/blob/v2.0.0/docs/versions/netstandard2.0.md)
+
 
 ## What is JSONPredicate?
 
@@ -16,9 +17,13 @@
 - **JSONPath Support**: Access `nested` object properties using `dot` notation
 - **Multiple Operators**: `eq` (equal), `in` (contains), `not` (not equal), `gt` (greater than), `gte` (greater than or equal), `lt` (less than), `lte` (less than or equal)
 - **Logical Operators**: `and`, `or` with proper precedence handling
+- **Array Handling**: Evaluate conditions on `arrays` and `collections`. Support array `indexing` (Available from v1.1.0)
+- **String Operations**: `starts_with`, `ends_with`, `contains` (Available from v1.1.0)
 - **Type Safety**: `Automatic` type conversion and validation
 - **Complex Expressions**: `Parentheses` grouping and `nested` operations
 - **Lightweight**: `Minimal` dependencies, `fast` evaluation
+- **Thread-Safe**: Safe for use in `multi-threaded` environments
+- **Performance Optimized**: Efficient parsing and evaluation for `high-performance` scenarios
 
 ## Installation
 
@@ -33,6 +38,7 @@ The expression syntax is ([JSONPath] [Comparison Operator] [Value]) [Logical Ope
 #### ii. Supported Operators
 - Comparison Operators - `eq`, `in`, `gt`, `gte`, `lt`, `lte` & `Not`
 - Logical Operators - `and` & `or`
+- String Operators - `starts_with`, `ends_with`, `contains` (Available from v1.1.0)
 ### Example
 ```
 var customer = new {
@@ -58,7 +64,19 @@ bool result2 = JSONPredicate.Evaluate("client.address.postcode eq `e113et` and c
 #### iii. Array operations
 ```
 bool result3 = JSONPredicate.Evaluate("client.tags in [`vip`, `standard`]", customer);
+bool
 ```
+#### iv. String operators (Available from v1.1.0)
+```
+bool result4 = JSONPredicate.Evaluate("client.address.postcode starts_with `e11`", customer);
+bool result5 = JSONPredicate.Evaluate("client.address.postcode ends_with `3et`", customer);
+bool result6 = JSONPredicate.Evaluate("client.address.postcode contains `13`", customer);
+```
+#### v. Deep Array Indexing (Available from v1.1.0)
+```
+bool result7 = JSONPredicate.Evaluate("client.tags[1] eq `premium`", customer);
+```
+
 ## Developer Guide
 Please see [Developer Guide](https://github.com/CodeShayk/JSONPredicate/wiki) for comprehensive documentation to integrate JSONPredicate in your project.
 
