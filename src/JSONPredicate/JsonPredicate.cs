@@ -2,7 +2,6 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using JSONPredicate;
 using JSONPredicate.Operators;
 
 namespace JSONPredicate
@@ -26,7 +25,7 @@ namespace JSONPredicate
                 { Expression.Comparison.EndsWithOperator, (left, right) => EndsWithOperator.Evaluate(left, right)},
                 { Expression.Comparison.ContainsOperator, (left, right) => ContainsOperator.Evaluate(left, right)}
             };
-            
+
             ComparisonOperators = new ConcurrentDictionary<string, Func<object, object, bool>>(operators);
         }
 

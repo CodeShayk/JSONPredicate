@@ -32,7 +32,7 @@ namespace JSONPredicate
 
             // Define operators in order of length (longer first) to avoid partial matches
             var operators = new[] { "gte", "lte", "not", "eq", "gt", "lt", "in" };
-            
+
             for (int i = 0; i < expr.Length; i++)
             {
                 // Skip if inside quotes
@@ -53,31 +53,31 @@ namespace JSONPredicate
                     }
                     continue;
                 }
-                
+
                 // Check for operator at this position (not in quotes)
                 foreach (var op in operators)
                 {
-                    if (i + op.Length <= expr.Length && 
+                    if (i + op.Length <= expr.Length &&
                         expr.Substring(i, op.Length).Equals(op, StringComparison.OrdinalIgnoreCase))
                     {
                         // Verify it's surrounded by whitespace or string boundaries
                         bool beforeOk = i == 0 || char.IsWhiteSpace(expr[i - 1]);
                         bool afterOk = i + op.Length == expr.Length || char.IsWhiteSpace(expr[i + op.Length]);
-                        
+
                         if (beforeOk && afterOk)
                         {
                             var path = expr.Substring(0, i).Trim();
                             var value = expr.Substring(i + op.Length).Trim();
-                            
+
                             if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(value))
                                 throw new ArgumentException($"Invalid expression format: {expression}");
-                                
+
                             return (path, op, value);
                         }
                     }
                 }
             }
-            
+
             throw new ArgumentException($"Invalid expression format: {expression}");
         }
     }
