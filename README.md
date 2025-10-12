@@ -1,4 +1,4 @@
-# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.1.0
+# <img src="https://github.com/CodeShayk/JSONPredicate/blob/master/Images/ninja-icon-16.png" alt="ninja" style="width:30px;"/> JSONPredicate v1.2.0
 [![NuGet version](https://badge.fury.io/nu/JSONPredicate.svg)](https://badge.fury.io/nu/JSONPredicate) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/CodeShayk/JSONPredicate/blob/master/LICENSE.md) 
 [![GitHub Release](https://img.shields.io/github/v/release/CodeShayk/JSONPredicate?logo=github&sort=semver)](https://github.com/CodeShayk/JSONPredicate/releases/latest)
 [![master-build](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml/badge.svg)](https://github.com/CodeShayk/JSONPredicate/actions/workflows/Master-Build.yml)
@@ -18,7 +18,7 @@
 - **Multiple Operators**: `eq` (equal), `in` (contains), `not` (not equal), `gt` (greater than), `gte` (greater than or equal), `lt` (less than), `lte` (less than or equal)
 - **Logical Operators**: `and`, `or` with proper precedence handling
 - **Array Handling**: Evaluate conditions on `arrays` and `collections`. Support array `indexing` (Available from v1.1.0)
-- **String Operations**: `starts_with`, `ends_with`, `contains` (Available from v1.1.0)
+- **String Operations**: `starts_with`, `ends_with`, `contains` (Available from v1.2.0)
 - **Type Safety**: `Automatic` type conversion and validation
 - **Complex Expressions**: `Parentheses` grouping and `nested` operations
 - **Lightweight**: `Minimal` dependencies, `fast` evaluation
@@ -38,7 +38,7 @@ The expression syntax is ([JSONPath] [Comparison Operator] [Value]) [Logical Ope
 #### ii. Supported Operators
 - Comparison Operators - `eq`, `in`, `gt`, `gte`, `lt`, `lte` & `Not`
 - Logical Operators - `and` & `or`
-- String Operators - `starts_with`, `ends_with`, `contains` (Available from v1.1.0)
+- String Operators - `starts_with`, `ends_with`, `contains` (Available from v1.2.0)
 ### Example
 ```
 var customer = new {
@@ -66,13 +66,13 @@ bool result2 = JSONPredicate.Evaluate("client.address.postcode eq `e113et` and c
 bool result3 = JSONPredicate.Evaluate("client.tags in [`vip`, `standard`]", customer);
 bool
 ```
-#### iv. String operators (Available from v1.1.0)
+#### iv. String operators (Available from v1.2.0)
 ```
 bool result4 = JSONPredicate.Evaluate("client.address.postcode starts_with `e11`", customer);
 bool result5 = JSONPredicate.Evaluate("client.address.postcode ends_with `3et`", customer);
 bool result6 = JSONPredicate.Evaluate("client.address.postcode contains `13`", customer);
 ```
-#### v. Deep Array Indexing (Available from v1.1.0)
+#### v. Deep Array Indexing (Available from v1.2.0)
 ```
 bool result7 = JSONPredicate.Evaluate("client.tags[1] eq `premium`", customer);
 ```
@@ -86,7 +86,7 @@ This section provides the summary of planned releases with key details about eac
 | Version | Release Date | Type | Key Improvements | Backward Compatible |
 |---------|--------------|------|------------------|-------------------|
 | v1.0.0 | August 2025 | Major | Initial release with core predicate evaluation | N/A |
-| v1.1.0 | October 2025 | Minor | Namespace consistency, thread safety, 50%+ performance improvement, array indexing, new operators (`starts_with`, `ends_with`, `contains`) | Yes |
+| v1.2.0 | October 2025 | Minor | Namespace consistency, thread safety, 50%+ performance improvement, array indexing, new operators (`starts_with`, `ends_with`, `contains`), comprehensive unit tests | Yes |
 | v2.0.0 | TBC | Major | Comprehensive validation, performance benchmarking, thread safety verification, complete documentation | Mostly* |
 
 *Note: v2.0.0 marked as "Mostly" backward compatible due to major internal changes that may affect some advanced usage patterns.

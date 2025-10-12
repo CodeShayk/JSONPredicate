@@ -26,7 +26,7 @@ Initial release of the JSONPredicate library. Provides core functionality for ev
 
 ---
 
-### v1.1.0 - Combined Fix, Feature and Performance Release
+### v1.2.0 - Combined Fix, Feature and Performance Release
 **Release Type**: Minor (Backward Compatible)
 **Release Date**: October 2025
 **Focus**: Critical fixes, new functionality and performance improvements
@@ -148,7 +148,7 @@ Major feature and performance release with comprehensive validation. This releas
 
 ## Evolution Summary
 
-### v1.0.0 → v1.1.0: Foundation, Stability, Performance and Features
+### v1.0.0 → v1.2.0: Foundation, Stability, Performance and Features
 - **Focus**: Internal consistency, thread safety, performance optimization and new functionality
 - **Improvement**: Fixed critical namespace inconsistency
 - **Improvement**: Made operator dictionary thread-safe
@@ -156,15 +156,8 @@ Major feature and performance release with comprehensive validation. This releas
 - **Improvement**: Expression parsing optimization removing regex dependency
 - **Addition**: Array indexing support (e.g., `array[0].property`)
 - **Addition**: New operators (`starts_with`, `ends_with`, `contains`)
+- **Addition**: Comprehensive unit tests for all new features
 - **Impact**: Better stability, reliability and performance with new features, all backward compatible
-
-### v1.1.0 → v2.0.0: Validation and Production Readiness
-- **Focus**: Comprehensive validation and release preparation
-- **Achievement**: All features integrated and validated together
-- **Achievement**: Performance improvements quantitatively verified
-- **Achievement**: Thread safety comprehensively tested
-- **Achievement**: Complete documentation and packaging
-- **Impact**: Production-ready major release with all improvements validated
 
 ## Technical Improvements Summary
 
@@ -188,21 +181,13 @@ Major feature and performance release with comprehensive validation. This releas
 
 ## Upgrade Path
 
-### From v1.0.0 to v1.1.0
+### From v1.0.0 to v1.2.0
 - Drop-in replacement
 - No code changes required for existing functionality
 - Benefits: Thread safety, performance improvements, and new features available
-
-### From v1.0.x to v2.0.0
-- Drop-in replacement for basic usage
-- Thorough testing recommended for advanced usage due to internal implementation changes
-- Benefit: All improvements and comprehensive validation
 
 ## Key Metrics
 
 | Version | Performance Improvement | Memory Improvement | New Features | Backward Compatible |
 |---------|------------------------|-------------------|----------------|-------------------|
-| v1.1.0  | 50-70%                 | 60%+              | Namespace consistency, thread safety, array indexing, 3 new operators | Yes |
-| v2.0.0  | 50-70% (maintained)    | 60%+ (maintained) | Complete validation, documentation | Mostly |
-
-*Note: v2.0.0 marked as "Mostly" backward compatible due to major internal changes that may affect some advanced usage patterns.*
+| v1.2.0  | 50-70%                 | 60%+              | Namespace consistency, thread safety, array indexing, 3 new operators, comprehensive unit tests | Yes |

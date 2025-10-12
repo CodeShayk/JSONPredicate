@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net462;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
@@ -21,7 +21,7 @@
     <PackageProjectUrl>https://github.com/CodeShayk/JSONPredicate/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CodeShayk/JSONPredicate</RepositoryUrl>
     <PackageReleaseNotes>
-      v1.1.0 - Enhanced JSONPredicate library with significant improvements.
+      v1.2.0 - Enhanced JSONPredicate library with additional improvements.
       - Array indexing support in JSONPath (e.g., `array[0].property`)
       - New comparison operators: `starts_with`, `ends_with`, and `contains`
       - Direct object navigation with 50%+ performance improvement
@@ -29,9 +29,9 @@
       - Optimized expression parsing without regex dependency.
       
       For more details, visit the release page: 
-      https://github.com/CodeShayk/JSONPredicate/releases/tag/v1.1.0
+      https://github.com/CodeShayk/JSONPredicate/releases/tag/v1.2.0
     </PackageReleaseNotes>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AssemblyName>JSONPredicate</AssemblyName>
   </PropertyGroup>
