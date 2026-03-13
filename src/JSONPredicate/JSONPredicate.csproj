@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net462;netstandard2.0;netstandard2.1;net9.0</TargetFrameworks>
+    <TargetFrameworks>net462;netstandard2.0;netstandard2.1;net9.0;net10.0</TargetFrameworks>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
     <Title>JSONPredicate</Title>
     <Authors>CodeShayk</Authors>
     <Company>CodeShayk</Company>
     <Description>A powerful .NET library for evaluating string-based predicate expressions against JSON objects using JSONPath syntax.</Description>
-    <PackageIcon>ninja-icon-16.png</PackageIcon>
+    <PackageIcon>json-icon.jpg</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Copyright>Copyright (c) 2025 Code Shayk</Copyright>
+    <Copyright>Copyright (c) 2026 Code Shayk</Copyright>
     <RepositoryType>git</RepositoryType>
     <PackageTags>JSON, JSONPath, Predicate, JSON-Query, JSONPath-Query, JSON-Predicate, JSONPath-Predicate, Object-Path, Object-String-Predicate, Object-JSON-Predicate, Object-JSONPath-Predicate, Object-JSON-Predicate, Object-JSONPath-Query, PredicateBuilder, Object-Query-Predicate, Object-Path-Query, Query-Predicate, Object-Query</PackageTags>
     <IncludeSymbols>True</IncludeSymbols>
@@ -21,17 +21,12 @@
     <PackageProjectUrl>https://github.com/CodeShayk/JSONPredicate/wiki</PackageProjectUrl>
     <RepositoryUrl>https://github.com/CodeShayk/JSONPredicate</RepositoryUrl>
     <PackageReleaseNotes>
-      v1.2.0 - Enhanced JSONPredicate library with additional improvements.
-      - Array indexing support in JSONPath (e.g., `array[0].property`)
-      - New comparison operators: `starts_with`, `ends_with`, and `contains`
-      - Direct object navigation with 50%+ performance improvement
-      - Thread-safe operation in multi-threaded environments
-      - Optimized expression parsing without regex dependency.
-      
-      For more details, visit the release page: 
-      https://github.com/CodeShayk/JSONPredicate/releases/tag/v1.2.0
+      # Release Notes - JSONPredicate v1.5.0
+      ## Release Type: Minor Release:  Targets .Net 10
+      **Date**: 2026-03-13
+      **Version**: 1.5.0
     </PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <Version>1.5.0</Version>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <AssemblyName>JSONPredicate</AssemblyName>
   </PropertyGroup>
@@ -69,7 +64,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\Images\ninja-icon-16.png">
+    <None Include="..\..\Images\json-icon.jpg">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
